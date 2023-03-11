@@ -1,0 +1,1 @@
+rclone mount ***SERVER****:****BUCKET**** ***MOUNT POINT**** --daemon --allow-other --vfs-read-chunk-size off  --transfers=80 --fast-list
