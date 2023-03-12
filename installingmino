@@ -1,0 +1,5 @@
+<h1>Installing Minio</h1>
+
+1. Make sure you plan your installation
+2. Make sure when you build your machines you mount/format the extra drives - forgetting this will leave you in a mess.
+3. Point the MINIO installation to the new drives
