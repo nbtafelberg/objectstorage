@@ -1,1 +1,52 @@
+1. Install curl
+
+apt-get install curl
+
+2. Install rclone (as root)
+
+curl https://rclone.org/install.sh | bash
+
+3. Create .config folder
+4. Create rclone folder
+5. Create rclone.conf file
+
+( basically /root/.config/rclone/rclone.conf )
+
+[minio]
+type = s3
+env_auth = false
+access_key_id = *** YOUR ACCESS KEY ***
+secret_access_key = *** YOUR SECRET KEY ***
+region =
+endpoint = *** YOUR SERVER ADDRESS ***:9000
+location_constraint =
+server_side_encryption =
+provider = Minio
+acl = private
+
+6. Make a mount point for the bucket
+
+mkdir /mnt/*** MOUNT POINT ***
+
+6. Create startrclone file
+
 rclone mount ***SERVER****:****BUCKET**** ***MOUNT POINT**** --daemon --allow-other --vfs-read-chunk-size off  --transfers=80 --fast-list
+
+
+7. chmod +x startrclone
+
+8. Start rclone
+
+./startrclone
+
+9. Set rclone to start on boot
+
+crontab -e
+
+@reboot /root/startrclone
+
+(nano) CTRL K CTRL Y
+
+
+Done!
+
